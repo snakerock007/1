@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User List</title>
+</head>
+<body>
+<h2>Represent all users!</h2>
+
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>LastName</th>
+    </tr>
+    </thead>
+</table>
+    <tbody>
+    <tr th:each="user : ${allUser}">
+        <a th:href="@{/allUser/{id}(id=${user.getId()})}"
+           th:text="${user.getFirstName() +'  '+ user.getLastName() }">user</a>
+        <br>
+
+    </tr>
+    </tbody>
+
+<br>
+<a th:href="@{/new}">Add new user</a>
+
+</body>
+</html>
+
